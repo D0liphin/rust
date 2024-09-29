@@ -3398,17 +3398,6 @@ The tracking issue for this feature is: [#57349]
 "##,
     },
     Lint {
-        label: "const_nonnull_new",
-        description: r##"# `const_nonnull_new`
-
-The tracking issue for this feature is: [#93235]
-
-[#93235]: https://github.com/rust-lang/rust/issues/93235
-
-------------------------
-"##,
-    },
-    Lint {
         label: "const_num_midpoint",
         description: r##"# `const_num_midpoint`
 

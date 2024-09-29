@@ -219,7 +219,7 @@ impl<T: ?Sized> NonNull<T> {
     /// }
     /// ```
     #[stable(feature = "nonnull", since = "1.25.0")]
-    #[rustc_const_unstable(feature = "const_nonnull_new", issue = "93235")]
+    #[rustc_const_stable(feature = "const_nonnull_new", since = "CURRENT_RUSTC_VERSION")]
     #[inline]
     pub const fn new(ptr: *mut T) -> Option<Self> {
         if !ptr.is_null() {
@@ -1211,7 +1211,6 @@ impl<T: ?Sized> NonNull<T> {
     /// underlying allocation.
     ///
     /// ```
-    /// #![feature(const_nonnull_new)]
     /// #![feature(const_option)]
     /// #![feature(const_pointer_is_aligned)]
     /// use std::ptr::NonNull;
@@ -1266,7 +1265,6 @@ impl<T: ?Sized> NonNull<T> {
     /// ```
     /// #![feature(const_pointer_is_aligned)]
     /// #![feature(const_option)]
-    /// #![feature(const_nonnull_new)]
     /// use std::ptr::NonNull;
     ///
     /// // On some platforms, the alignment of primitives is less than their size.
