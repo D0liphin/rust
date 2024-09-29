@@ -29,7 +29,7 @@ impl<T: ?Sized> *const T {
     /// assert!(!ptr.is_null());
     /// ```
     #[stable(feature = "rust1", since = "1.0.0")]
-    #[rustc_const_unstable(feature = "const_ptr_is_null", issue = "74939")]
+    #[rustc_const_stable(feature = "const_ptr_is_null", since = "CURRENT_RUSTC_VERSION")]
     #[rustc_diagnostic_item = "ptr_const_is_null"]
     #[inline]
     pub const fn is_null(self) -> bool {
@@ -37,7 +37,7 @@ impl<T: ?Sized> *const T {
         fn runtime_impl(ptr: *const u8) -> bool {
             ptr.addr() == 0
         }
-
+        
         #[inline]
         const fn const_impl(ptr: *const u8) -> bool {
             match (ptr).guaranteed_eq(null_mut()) {
@@ -48,7 +48,7 @@ impl<T: ?Sized> *const T {
                 None => panic!("null-ness of this pointer cannot be determined in const context"),
             }
         }
-
+        
         // Compare via a cast to a thin pointer, so fat pointers are only
         // considering their "data" part for null-ness.
         const_eval_select((self as *const u8,), const_impl, runtime_impl)
@@ -270,7 +270,7 @@ impl<T: ?Sized> *const T {
     /// }
     /// ```
     #[stable(feature = "ptr_as_ref", since = "1.9.0")]
-    #[rustc_const_unstable(feature = "const_ptr_is_null", issue = "74939")]
+    #[rustc_const_stable(feature = "const_ptr_is_null", since = "CURRENT_RUSTC_VERSION")]
     #[inline]
     pub const unsafe fn as_ref<'a>(self) -> Option<&'a T> {
         // SAFETY: the caller must guarantee that `self` is valid

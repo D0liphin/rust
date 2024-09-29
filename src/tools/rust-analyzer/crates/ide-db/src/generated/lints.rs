@@ -3483,18 +3483,7 @@ The tracking issue for this feature is: [#91822]
 [#91822]: https://github.com/rust-lang/rust/issues/91822
 
 ------------------------
-"##,
-    },
-    Lint {
-        label: "const_ptr_is_null",
-        description: r##"# `const_ptr_is_null`
-
-The tracking issue for this feature is: [#74939]
-
-[#74939]: https://github.com/rust-lang/rust/issues/74939
-
-------------------------
-"##,
+"##,,
     },
     Lint {
         label: "const_ptr_sub_ptr",
